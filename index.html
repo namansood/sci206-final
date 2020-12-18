@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet"> 
+		<link rel="stylesheet" href="css/style.css">
+		<title>SCI 206 Project</title>
+	</head>
+	<body>
+		
+<section id="hero">
+	<div class="cradle-bg">
+		<div class="pendulum">
+			<div class="pendulum_box">
+				<div class="ball first"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball"></div>
+				<div class="ball last"></div>
+			</div>
+		</div>
+	</div>
+	<h1>Motion</h1>
+	<h3>SCI 206 Fall 2020 Project</h3>
+	<h4>By Naman Sood, Padam Chopra, and Aryan Sehgal.</h4>
+</section>
+
+<section class="heading-section">
+	<a href="https://codepen.io/arushi011/pen/EXmMvx" class="reference">Newton's Cradle adapted from Arushi Bajpai's work.</a>
+	<h1 class="title">
+		Types of Motion
+	</h1>
+</section>
+
+<section id="translation" class="two-piece">
+	<div class="text-container">
+		<h2>Translational Motion</h2>
+		<p>
+			This is the kind of motion where all parts of an object move the
+			same distance with respect to each other, that is,
+			the entire object moves as a single entity.
+		</p> 
+	</div>
+	<div class="image-container translation-demo">
+		<canvas id="hills"></canvas>
+		<img src="content/ferrari.png" alt="Volkswagen Beetle 1949" />
+	</div>
+</section>
+
+
+
+<section id="rotation" class="two-piece">
+	<div class="image-container rotation-demo">
+		<div class="earth"></div>
+	</div>
+	<div class="text-container">
+		<h2>Rotational Motion</h2>
+		<p>
+			This is the kind of motion where an object moves about an axis 
+			and different parts of it move different distances in a given time &ndash;
+			the parts closer to the axis move lesser than the parts that are further away.
+		</p> 
+	</div>
+
+	<a href="https://code.sololearn.com/WAO1FXwmPOqv/" class="reference">Earth animation adapted from Deyvid Bustos's work.</a>
+</section>
+
+
+
+
+<section id="periodic" class="two-piece">
+	<div class="text-container">
+		<h2>Periodic Motion</h2>
+		<p>
+			This is the kind of motion where the motion performed by
+			an object is repeated after equal intervals of time. One
+			complete repetition of the motion is called a cycle.
+		</p> 
+	</div>
+	<div class="image-container periodic-demo">
+		<div class="periodic-block"></div>
+	</div>
+</section>
+
+
+
+<section id="periodic" class="two-piece">
+	<div class="image-container nonperiodic-demo">
+		<canvas id="stars"></canvas>
+		<img src="content/rocket.png" alt="Rocket image" />
+	</div>
+	<div class="text-container">
+		<h2>Nonperiodic Motion</h2>
+		<p>
+			This is the kind of motion where the motion performed 
+			by an object is not repeated after regular intervals 
+			of time. However, the motion may repeat after irregular 
+			intervals of time, or it may not repeat at all. 
+		</p> 
+	</div>
+</section>
+
+<div class="balls-wrapper">
+<section class="heading-section">
+	<h1 class="title">
+		Newton's Laws of Motion
+	</h1>
+	<h3>Interactive Demo</h3>
+</section>
+
+<section class="balls-demo">
+	<div class="vel-box">Red velocity: <span id="red-vel"></span></div>
+	<div class="vel-box">Blue velocity: <span id="blue-vel"></span></div>
+	<canvas id="balls"></canvas>
+	<div class="buttons">
+		<a href="#" class="button blue" id="blue-left">&lt;</a>
+		<a href="#" class="button blue" id="blue-right">&gt;</a>
+		<a href="#" class="button" id="reset">Reset</a>
+		<a href="#" class="button red" id="red-left">&lt;</a>
+		<a href="#" class="button red" id="red-right">&gt;</a>
+	</div>
+
+	<h3>Click the buttons above to provide velocity to the red and blue balls
+		<br>by applying a leftward or rightward force.</h3>
+</section>
+
+<section class="three-laws">
+	<div class="law">
+		<h2>First Law</h2>
+		<blockquote>
+			An object at rest stays at rest, and an object in motion
+			stays in motion, until and unless a force is applied to it.
+		</blockquote>
+		<p>
+			Until we apply a force on the balls, they remain at rest. 
+			When the balls are moving, they only come to a stop when a resisting
+			force is applied.
+		</p>
+	</div>
+	<div class="law">
+		<h2>Second Law</h2>
+		<blockquote>
+			The force applied on an object is directly proportional to its
+			acceleration.
+		</blockquote>
+		<p>
+			If we apply &ldquo;more force&rdquo; by pushing a ball multiple
+			times in the same direction, the ball is accelerated more and hence
+			gains more velocity.
+		</p>
+	</div>
+	<div class="law">
+		<h2>Third Law</h2>
+		<blockquote>
+			For every action (force) in nature, there is an equal and opposite
+			reaction.
+		</blockquote>
+		<p>
+			When the two balls collide, one ball applies a force on the second,
+			and at the same time experiences an equal force in the opposite direction
+			from the second ball.
+		</p>
+	</div>
+</section>
+</div>
+
+<div class="dark-mode">
+<section class="heading-section">
+	<h1>Gravitational Force</h1>
+</section>
+
+<section id="gravitation" class="two-piece">
+	<div class="text-container">
+		<h2>Mass and Weight</h2>
+		<p>
+			The gravitational force is the force that attracts
+			any two objects with mass.
+		</p> 
+		<p>
+			The difference between weight and mass is that mass
+			remains constant for an object throughout the universe,
+			whereas weight can change depending on the the gravitational
+			force.
+		</p>
+		<p>
+			Since weighing machines measure weight and not mass, a weighing
+			machine designed for the Earth would give different readings on
+			another celestial body, like Mars or the Moon &ndash; as you can
+			see in the calculator on the right!
+		</p>
+	</div>
+	<div class="image-container gravitation-demo">
+		<input type="number" id="earth-weight" placeholder="Weight (kg)" />
+		<p id="weight-output">Enter your weight in the text box above, to calculate how much you would weigh on the Moon or Mars!</p>
+	</div>
+</section>
+</div>
+
+<div class="greybg">
+<section class="heading-section">
+	<h1 class="title">
+		Other Important Forces
+	</h1>
+</section>
+
+<section class="three-laws">
+	<div class="law">
+		<h2>Normal Force</h2>
+		<p>
+			According to Newton's third law,
+			surfaces in contact with an object
+			exert a force on the object that is
+			equal and opposite to the force the
+			object is exerting on them. This is
+			called the normal force.
+		</p>
+	</div>
+	<div class="law">
+		<h2>Tension</h2>
+		<p>
+			This is the force that is transmitted
+			though a rope or string that has forces
+			acting on it at both ends. Tension in a
+			string is always equal across the length
+			of the string.
+		</p>
+	</div>
+	<div class="law">
+		<h2>Friction</h2>
+		<p>
+			The frictional force is the force generated
+			by two objects in contact with each other.
+			This force is primarily of three types:
+			static, kinetic and sliding. Static friction
+			is the highest in magnitude, followed by kinetic,
+			and finally sliding.
+		</p>
+	</div>
+</section>
+</div>
+
+<footer>
+	Created for SCI 206 Fall 2020 final project.
+</footer>
+
+
+
+	<script src="js/script.js"></script>
+	</body>
+</html>

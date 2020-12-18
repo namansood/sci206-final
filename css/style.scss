@@ -1,0 +1,469 @@
+/*
+todo: add scaling rules
+*/
+
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
+html {
+	margin: 0;
+	font-size: 18px;
+	line-height: 1.5;
+}
+
+@media (min-width: 1800px) {
+	html {
+		font-size: 20px;
+	}
+}
+@media (min-width: 2400px) {
+	html {
+		font-size: 24px;
+	}
+}
+@media (min-width: 2800px) {
+	html {
+		font-size: 32px;
+	}
+}
+@media (min-width: 3600px) {
+	html {
+		font-size: 36px;
+	}
+}
+
+
+$bgColor1: #093637;
+$bgColor2: #44A08D;
+$ballColor: rgba(0,0,0,0.1);
+$ballStringColor: darken($ballColor, 2%);
+$textColor: saturate(lighten($bgColor2, 40%), 20%);
+
+body {
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+}
+
+section#hero {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	overflow-x: hidden;
+	background: linear-gradient(30deg, $bgColor1 -10%, $bgColor2 110%);
+	color: $textColor;
+	overflow: hidden;
+	
+	> * {
+		position: relative;
+		z-index: 100;
+	}
+	> .cradle-bg {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 10;
+		transform: scale(3);
+	}	
+}
+
+.pendulum{
+	position:absolute; 
+	width: 12.222rem;
+	height: 10rem;
+	top:50%;
+	left:  50%;
+	border-radius: 5%;
+	align-items: center;
+	transform: translate(-50%, -50%);
+}
+.pendulum_box{
+	display: flex;
+	padding: 6.666rem 0 0 0.555rem;
+	position: absolute;
+	flex: 1;
+}
+.ball{
+	height: 2.222rem;
+	width: 2.222rem;
+	border-radius: 50%;
+	background-color: $ballColor;
+	position: relative;
+	transform-origin: 50% -500%;
+	
+}
+.ball::before{
+	content: '';
+	width: 2px;
+	height: calc(50vw - 6.666rem);
+	background-color: $ballStringColor;
+	left: 18px;
+	top: calc(-50vw + 6.666rem);
+	position: absolute;
+}
+
+.ball.first{
+	animation: firstball .9s alternate ease-in infinite;
+}
+
+@keyframes firstball{
+	0%{
+		transform: rotate(35deg);
+	}
+	50%{
+		transform: rotate(0deg);
+	}
+}
+
+.ball.last{
+	animation: lastball .9s alternate ease-out infinite;
+}
+
+@keyframes lastball{
+	50%{
+		transform: rotate(0deg);
+	}
+	100%{
+		transform: rotate(-35deg);
+	}
+}
+
+section {
+	position: relative;
+	z-index: 4;
+	display: flex;
+	padding: 4rem;
+	justify-content: center;
+	align-items: center;
+	
+	h1 {
+		font-size: 6rem;
+		font-weight: 100;
+		margin: 1rem 0;
+	}
+	h2 {
+		font-size: 2rem;
+		font-weight: 400;
+		margin-bottom: 0rem;
+		color: lighten($bgColor1, 10%);
+	}
+	h3 {
+		font-weight: 300;
+		font-size: 1.5rem;
+		margin: 0.5rem 0;
+	}
+	h4 {
+		font-size: 1rem;
+		font-weight: 300;
+		margin-top: 0;
+	}
+	p {
+		font-size: 1.1rem;
+	}
+}
+section.two-piece {
+	padding: 4rem 4rem 4rem;
+}
+section.two-piece .text-container {
+	width: 36rem;
+}
+section.two-piece .image-container {
+	-o-object-fit: contain;
+	object-fit: contain;
+	width: 25rem;
+	height: 14rem;
+	position: relative;
+}
+section.two-piece .text-container:first-child {
+	margin-right: 2rem;
+}
+section.two-piece .image-container:first-child {
+	margin-right: 4rem;
+	max-width: 18rem;
+}
+
+@keyframes translateAnim {
+	0% {
+		left: -30%;
+	}
+	100% {
+		left: 30%;
+	}
+}
+
+section.two-piece .periodic-demo {
+	position: relative;
+	
+	.periodic-block {
+		animation: translateAnim 1s cubic-bezier(0.77, 0, 0.175, 1) infinite alternate;
+		width: 40%;
+		height: 40%;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		background: $bgColor1;
+		border-radius: 0.33rem;
+	}
+}
+
+section.heading-section {
+	padding-bottom: 0;
+	flex-direction: column;
+	
+	h1 {
+		font-size: 4rem;
+		margin-bottom: 0.5rem;
+	}
+	
+	h3 {
+		margin-top: 0;
+	}
+}
+
+section.heading-section + section {
+	padding-top: 3rem;
+}
+
+.earth {
+	width:200px;
+	height:200px;
+	background-image:url( https://raw.githubusercontent.com/cartalan/TierraGirando/master/img/mapa.png);
+	background-size:cover;
+	border-radius:50%;
+	position:absolute;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+	margin:auto;
+	box-shadow:-30px -20px 0 0 rgba(0,0,0,.15) inset, -70px -30px 0 0 rgba(0,0,0,.1) inset, 5px 5px 0 0 rgba(255,255,255,.2) inset;
+	-webkit-animation:rotationEarth 5s infinite linear;
+	-moz-animation:rotationEarth 5s infinite linear;
+	animation:rotationEarth 5s infinite linear;
+}
+
+@-webkit-keyframes rotationEarth {
+	from {
+		background-position:left center;
+	}
+	to {
+		background-position: -396px center;
+	}
+}
+
+@keyframes rotationEarth {
+	from {
+		background-position:left center;
+	}
+	to {
+		background-position: -396px center;
+	}
+}
+
+section#rotation a.reference {
+	bottom: 0;
+	top: auto;
+}
+
+section.two-piece .translation-demo {
+	position: relative;
+	
+	#hills {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: calc(100% - 2rem);
+	}
+	
+	img {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		width: 40%;
+		transform: scaleX(-1);
+	}
+	
+	
+	box-shadow: 0 0 0.3rem rgba(0,0,0,0.1),
+	0 0.2rem 0.1rem rgba(0,0,0,0.2);
+	border-radius: 0.2rem;
+	overflow: hidden;
+}
+
+section.two-piece .nonperiodic-demo {
+	position: relative;
+	
+	#stars {
+		background: rgb(8, 10, 32);
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+	
+	img {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		width: 60%;
+	}
+	
+	box-shadow: 0 0 0.3rem rgba(0,0,0,0.1),
+	0 0.2rem 0.1rem rgba(0,0,0,0.2);
+	border-radius: 0.2rem;
+	overflow: hidden;
+}
+
+.balls-wrapper {
+	background: linear-gradient(30deg, lighten($bgColor2, 40%), lighten($bgColor1, 80%));
+}
+
+section.balls-demo {
+	flex-direction: column;
+	
+	.vel-box {
+		font-size: 0.85rem;
+	}
+	
+	canvas {
+		display: block;
+		width: 100%;
+	}
+	
+	div.buttons {
+		display: flex;
+		justify-content: center;
+		padding-top: 0.5rem;
+	}
+	
+	a.button {
+		color: white;
+		background: #222;
+		text-decoration: none;
+		display: block;
+		width: 3rem;
+		height: 3rem;
+		line-height: 3rem;
+		text-align: center;
+		margin: 0.5rem;
+		border-radius: 50%;
+		box-shadow: 0 0 0.3rem rgba(0,0,0,0.1),
+		0 0.2rem 0.1rem rgba(0,0,0,0.2);
+		
+		&.blue {
+			background: blue;
+		}
+		
+		&.red {
+			background: red;
+		}
+		
+		&#reset {
+			width: auto;
+			padding: 0 1.5rem;
+			border-radius: 0.2rem;
+		}
+	}
+	
+	h3 {
+		font-size: 1.2rem;
+		margin-top: 4rem;
+		text-align: center;
+	}
+}
+
+section.three-laws {
+	align-items: stretch;
+	padding-top: 0;
+	
+	.law {
+		background: white;
+		flex: 1;
+		padding: 2.5rem;
+		margin: 1.5rem;
+		border-radius: 0.15rem;
+		box-shadow: 0 0 0.3rem rgba(0,0,0,0.1),
+		0 0.2rem 0.1rem rgba(0,0,0,0.2);
+		
+		h2 {
+			margin: 0 0 1rem;
+		}
+		
+		blockquote {
+			font-style: italic;
+			border-left: 0.2rem solid #eee;
+			margin: 0;
+			padding-left: 1rem;
+			color: #555;
+		}
+	}
+}
+
+input {
+	font: inherit;
+	outline: none;
+	border: 0.1rem solid #999;
+	border-radius: 0.2rem;
+	line-height: 3rem;
+	padding: 0 1rem;
+	width: 100%;
+	display: block;
+}
+
+section#gravitation {
+	.gravitation-demo {
+		box-shadow: 0 0 0.3rem rgba(255,255,255,0.1),
+		0 0.2rem 0.1rem rgba(255,255,255,0.2);
+		padding: 2rem;
+		background: #eee;
+		color: #333;
+		height: auto;
+		
+		> p:first-child {
+			margin-top: 0;
+			border-radius: 0.15rem;
+		}
+	}
+}
+
+div.dark-mode {
+	filter: invert(100%) hue-rotate(180deg);
+	background: white;
+}
+
+div.greybg {
+	background: #eee;
+}
+
+a.reference {
+	color: rgba(0,0,0,0.5);
+	font-size: 0.6rem;
+	position: absolute;
+	top: 0.5rem;
+	right: 0.5rem;
+}
+
+footer {
+	background: $bgColor1;
+	color: white;
+	text-align: center;
+	font-size: 0.8rem;
+	padding: 3rem 0;
+}
